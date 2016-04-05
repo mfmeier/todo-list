@@ -1,0 +1,8 @@
+<%@task.each do |task|%>
+  <li>
+    <a href="/tasks/<%= task.id %>/complete"><%=task.title%><br>
+      <%if task.completed = true%>(Complete)
+      
+    </li>
+    <%end%>
+  <%end%>
