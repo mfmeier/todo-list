@@ -1,0 +1,10 @@
+<h1><%=@user.name%></h1>
+
+<h3>Assigned Tasks</h3>
+<% if !@assigned.nil?%>
+<%@assigned.each do |assigned|%>
+
+<%=assigned.task.title%><br>
+
+<%end%>
+<%end%>
