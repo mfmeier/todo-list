@@ -43,7 +43,11 @@ class TasksController < ApplicationController
     render 'edit'
   end
   def add
-    user = User.find_by_id(session.user.id)
+    @user = current_user
+    user = current_user
+    @assignments = user.assignments
+    @task = Task.all
+    @family = User.where("family_id" => user.family_id)
     render "main"
   end
 end

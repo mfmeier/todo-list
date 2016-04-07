@@ -1,66 +1,62 @@
-<h1>New Task</h1>
-
-<%= form_tag "/tasks" do %>
-  <input type="text" name="title">
-  <input type="submit">
-  <%end%>
-
-<a href="/tasks/view">View All Tasks</a><br>
-
-
-  <%@tasks.each do |task|%>
-  <%=task.title%><br>
-  <%end%>
-
-  <%= form_tag "/tasks" do %>
-  <input type="text" name="name">Add a new task
-  
-  <input type="submit">
-  <%end%>
-  <br>
-  <div class="">
-  <h3>Inbox(My Tasks)</h3><br>
-
-<%@all_tasks.each do |task|%>
-<a href="/task/edit/<%=task.id%>"><%=task.title%></a>
-<br>
-
-
-<%end%>
-</div>
-<br>
-
-
-<h3>Add a task to users in your family!</h3><br>
-<form action="/assignment/add">
- 
-
-<select name="user_id">
-    <option>Select a Family Member</option> 
-    <% @family.each do |family| %>
-        <option value="<%= family.id %>"><%= family.name %></option><br>
+<div class="top"> 
+  <div class ="inline">
+  <div class="head"><%=@user.family.name%></div>
+  </div>
+  <div class="inline">
+  <div class="addtask">
+    <%= link_to 'task/add' do %><%= image_tag('icon_white_plus.png')%>
     <% end %>
-</select>
-<% @all_tasks.each do |task| %>
-    <input type="checkbox" name="task_id" value="<%= task.id %>">
-    <label><%= task.title %>
-    <br>
-<% end %>
-<input type = "submit">
+    <%= link_to 'user/settings' do %><%= image_tag('icon_white_gear.png')%>
+    <% end %>
 
 
-</form>
 
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
 
-<%@task.each do |task|%>
-  <li>
-    <a href="/tasks/<%= task.id %>/complete">
-    <%if task.completed = true%>(Complete)
-    <%=task.title%>
-      
-      
-    </li>
-    <%end%>
+<div class="left">
+  <div class="inbox">
+    <%=image_tag("icon_inbox.png")%> Inbox<br>
+  </div>
+  <div class="calendar">
+    <%=image_tag("icon_calendar.png")%>Today<br>
+  </div>
+  <div class="tasks">
+    <%=image_tag("icon_all_tasks.png")%>  All Family Tasks<be>
+  </div>  
+  <div class="myinbox">
+  </div>
+  <p class="familymembers">Family Members</p>
+  <div class="familylist">
+  <%@family.each do |fam|%>
+  <a href="view/<%=fam.id%>/user"><%=fam.name%></a><br>
   <%end%>
+  </div>
+  <div class="checklist">
+  </div>
+  <div class="checklistcross">
+  </div>
+</div>
+<div class="right">
+  <div class="center">
+    <div class="myinbox">New Task
+    </div>
+    <div class="inputtask">
+      <%= form_tag "/tasks" do %>
+      <input type="text" name="title">
+      <input type="submit">
+      <%end%>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
 
 

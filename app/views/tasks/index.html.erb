@@ -1,58 +1,56 @@
 <div class="top"> 
-<h1><%=@user.family.name%></h1>
+  <div class ="inline">
+  <div class="head"><%=@user.family.name%></div>
+  </div>
+  <div class="inline">
+  <div class="addtask">
+    <%= link_to 'task/add' do %><%= image_tag('icon_white_plus.png')%>
+    <% end %>
+    <%= link_to 'user/settings' do %><%= image_tag('icon_white_gear.png')%>
+    <% end %>
 
-<div class="addtask">
-  <%= link_to image_tag("icon_white_plus.png", :border=>0), :action => 'add', 
-:controller => 'task', :class => 'add-task' %>
-</div>
-<div class="settings">
-<%= link_to image_tag("icon_white_gear.png", :border=>0), :action => 'settings', 
-:controller => 'user', :class => 'add-task' %>
-</div>
 
+
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
 
 <div class="left">
   <div class="inbox">
     <%=image_tag("icon_inbox.png")%> Inbox<br>
   </div>
   <div class="calendar">
-    <%=image_tag("icon_calendar.png")%> 
-    Today<br>
+    <%=image_tag("icon_calendar.png")%>Today<br>
   </div>
   <div class="tasks">
     <%=image_tag("icon_all_tasks.png")%>  All Family Tasks<be>
-
-<div class="myinbox">
-    </div>
-    <p class="familymembers">Family Members</p>
-<div class="familylist">
-<%@family.each do |fam|%>
-<a href="view/<%=fam.id%>/user"><%=fam.name%></a><br>
-<%end%>
-</div>
-    <div class="checklist">
-    
-    </div>
-    <div class="checklistcross">
   </div>  
-    </div>
+  <div class="myinbox">
   </div>
-  <div class="right">
-  
-
-
+  <p class="familymembers">Family Members</p>
+  <div class="familylist">
+  <%@family.each do |fam|%>
+  <a href="view/<%=fam.id%>/user"><%=fam.name%></a><br>
+  <%end%>
+  </div>
+  <div class="checklist">
+  </div>
+  <div class="checklistcross">
+  </div>
+</div>
+<div class="right">
   <div class="center">
     <div class="myinbox">Inbox (My Tasks)
     </div>
-    
-      <%@my_assignments.each do |assign|%>
-      <div class="mylist">
-      <%=assign.my_tasks.title%><br>
-     </div>
-      <%end%>
-       
+    <%@my_assignments.each do |assign|%>
+    <div class="mylist">
+    <%=assign.my_tasks.title%><br>
     </div>
-  </div>
+    <%end%>       
+    </div>
+</div>
 
 
 
