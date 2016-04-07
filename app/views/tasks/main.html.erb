@@ -11,3 +11,56 @@
   <%@tasks.each do |task|%>
   <%=task.title%><br>
   <%end%>
+
+  <%= form_tag "/tasks" do %>
+  <input type="text" name="name">Add a new task
+  
+  <input type="submit">
+  <%end%>
+  <br>
+  <div class="">
+  <h3>Inbox(My Tasks)</h3><br>
+
+<%@all_tasks.each do |task|%>
+<a href="/task/edit/<%=task.id%>"><%=task.title%></a>
+<br>
+
+
+<%end%>
+</div>
+<br>
+
+
+<h3>Add a task to users in your family!</h3><br>
+<form action="/assignment/add">
+ 
+
+<select name="user_id">
+    <option>Select a Family Member</option> 
+    <% @family.each do |family| %>
+        <option value="<%= family.id %>"><%= family.name %></option><br>
+    <% end %>
+</select>
+<% @all_tasks.each do |task| %>
+    <input type="checkbox" name="task_id" value="<%= task.id %>">
+    <label><%= task.title %>
+    <br>
+<% end %>
+<input type = "submit">
+
+
+</form>
+
+
+<%@task.each do |task|%>
+  <li>
+    <a href="/tasks/<%= task.id %>/complete">
+    <%if task.completed = true%>(Complete)
+    <%=task.title%>
+      
+      
+    </li>
+    <%end%>
+  <%end%>
+
+

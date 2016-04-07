@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get "user/:id/view" => 'user#view'
   get "assignment/add" => 'assignment#add'
   get "task/edit/:id" => 'task#edit'
+  get "task/add"  => 'task#add'
+  get "user/settings" => 'user#settings'
 end

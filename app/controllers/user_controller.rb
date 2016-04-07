@@ -6,10 +6,14 @@ class UserController < ApplicationController
     redirect_to ("/user/main")
   end
   def view
-
     @user = User.find_by_id(params[:id])
     @assigned = Assignment.where("user_id" => @user.id)
-    @tasks = Task.where(".id" => @assigned.task_id)
+    
+
+ 
     render 'view'
+  end
+  def settings
+    @user = current_user
   end
 end

@@ -5,7 +5,6 @@ class AssignmentController < ApplicationController
     assignment.user_id = @user.id
     assignment.task_id = params[:task_id]
     assignment.save
-    debugger
     redirect_to "/user/#{@user.id}/view"
   end
 end

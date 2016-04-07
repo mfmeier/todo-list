@@ -1,53 +1,62 @@
-<h1>Welcome to your Todo List!!</h1>
-<br>
-<%= form_tag "/tasks" do %>
-  <input type="text" name="name">Add a new task
-  
-  <input type="submit">
-  <%end%>
-  <br>
-  <h3>All tasks</h3><br>
+<div class="top"> 
+<h1><%=@user.family.name%></h1>
 
-<%@all_tasks.each do |task|%>
-<a href="/task/edit/<%=task.id%>"><%=task.title%></a>
-<br>
+<div class="addtask">
+  <%= link_to image_tag("icon_white_plus.png", :border=>0), :action => 'add', 
+:controller => 'task', :class => 'add-task' %>
+</div>
+<div class="settings">
+<%= link_to image_tag("icon_white_gear.png", :border=>0), :action => 'settings', 
+:controller => 'user', :class => 'add-task' %>
+</div>
 
 
+<div class="left">
+  <div class="inbox">
+    <%=image_tag("icon_inbox.png")%> Inbox<br>
+  </div>
+  <div class="calendar">
+    <%=image_tag("icon_calendar.png")%> 
+    Today<br>
+  </div>
+  <div class="tasks">
+    <%=image_tag("icon_all_tasks.png")%>  All Family Tasks<be>
+
+<div class="myinbox">
+    </div>
+    <p class="familymembers">Family Members</p>
+<div class="familylist">
+<%@family.each do |fam|%>
+<a href="view/<%=fam.id%>/user"><%=fam.name%></a><br>
 <%end%>
-
-<br>
-
-
-<h3>Add a task to users in your family!</h3><br>
-<form action="/assignment/add">
- 
-
-<select name="user_id">
-    <option>Select a Family Member</option> 
-    <% @family.each do |family| %>
-        <option value="<%= family.id %>"><%= family.name %></option><br>
-    <% end %>
-</select>
-<% @all_tasks.each do |task| %>
-    <input type="checkbox" name="task_id" value="<%= task.id %>">
-    <label><%= task.title %>
-    <br>
-<% end %>
-<input type = "submit">
+</div>
+    <div class="checklist">
+    
+    </div>
+    <div class="checklistcross">
+  </div>  
+    </div>
+  </div>
+  <div class="right">
+  
 
 
-</form>
+  <div class="center">
+    <div class="myinbox">Inbox (My Tasks)
+    </div>
+    
+      <%@my_assignments.each do |assign|%>
+      <div class="mylist">
+      <%=assign.my_tasks.title%><br>
+     </div>
+      <%end%>
+       
+    </div>
+  </div>
 
 
-<%@task.each do |task|%>
-  <li>
-    <a href="/tasks/<%= task.id %>/complete">
-    <%if task.completed = true%>(Complete)
-    <%=task.title%>
-      
-      
-    </li>
-    <%end%>
-  <%end%>
+
+
+
 
 

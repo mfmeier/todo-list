@@ -15,12 +15,13 @@ class TasksController < ApplicationController
     render 'index'
   end
   def index #The sites welcome page
-    user = current_user
+    @user = current_user
       
 
       
 
-      @family = User.where("family_id" => user.family_id)
+      @family = User.where("family_id" => @user.family_id)
+      @my_assignments = Assignment.where("user_id" => @user.id)
       @task = Task.all   #I need this to be --- user.tasks
       @all_tasks = Task.all #still all the tasks not just this users
       render 'index'
@@ -40,5 +41,9 @@ class TasksController < ApplicationController
   def edit
     task = Task.find_by_id(params[:id])
     render 'edit'
+  end
+  def add
+    user = User.find_by_id(session.user.id)
+    render "main"
   end
 end
