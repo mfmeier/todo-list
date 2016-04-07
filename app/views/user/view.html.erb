@@ -1,10 +1,66 @@
-<h1><%=@user.name%></h1>
+<div class="top"> 
+  <div class ="inline">
+  <div class="head"><%=@user.family.name%></div>
+  </div>
+  <div class="inline">
+  <div class="addtask">
+    <%= link_to 'task/add' do %><%= image_tag('icon_white_plus.png')%>
+    <% end %>
+    <%= link_to 'user/settings' do %><%= image_tag('icon_white_gear.png')%>
+    <% end %>
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
 
-<h3>Assigned Tasks</h3>
-<% if !@assigned.nil?%>
-<%@assigned.each do |assigned|%>
+<div class="left">
+  <div class="inbox">
+    <%=image_tag("icon_inbox.png")%> Inbox<br>
+  </div>
+  <div class="calendar">
+    <%=image_tag("icon_calendar.png")%>Today<br>
+  </div>
+  <div class="tasks">
+    <%=image_tag("icon_all_tasks.png")%>  All Family Tasks<be>
+  </div>  
+  <div class="myinbox">
+  </div>
+  <p class="familymembers">Family Members</p>
+  <div class="familylist">
+  <%@family.each do |fam|%>
+  <a href="user/<%=fam.id%>/view"><%=fam.name%></a><br>
+  <%end%>
+  </div>
+  <div class="checklist">
+  </div>
+  <div class="checklistcross">
+  </div>
+</div>
+<div class="right">
+  <div class="center">
+    <div class="myinbox">
+    <h1><%=@user.name%></h1>
 
-<%=assigned.task.title%><br>
+    <h3>Assigned Tasks</h3>
+    <% if !@assigned.nil?%>
+    <%@assigned.each do |assigned|%>
 
-<%end%>
-<%end%>
+    <%=assigned.task.title%><br>
+    </div>
+    <%@my_assignments.each do |assign|%>
+    <div class="mylist">
+    <%=assign.my_tasks.title%><br>
+    </div>
+    <%end%>
+    <%end%> 
+    <%end%>       
+    </div>
+</div>
+
+
+
+
+
+
+
