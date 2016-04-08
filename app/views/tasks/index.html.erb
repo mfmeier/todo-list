@@ -1,11 +1,14 @@
+
 <div class="top"> 
   <div class ="inline">
   <div class="head"><%=@user.family.name%></div>
   </div>
   <div class="inline">
   <div class="addtask">
-    <%= link_to 'task/add' do %><%= image_tag('icon_white_plus.png')%>
+    <div id="add">
+    <%=link_to '#' do %><%= image_tag('icon_white_plus.png')%>
     <% end %>
+    </div>
     <%= link_to 'user/settings' do %><%= image_tag('icon_white_gear.png')%>
     <% end %>
 
@@ -25,7 +28,8 @@
     <%=image_tag("icon_calendar.png")%>Today<br>
   </div>
   <div class="tasks">
-    <%=image_tag("icon_all_tasks.png")%>  All Family Tasks<be>
+    <%= link_to 'task/family' do %><%=image_tag('icon_all_tasks.png')%>  All Family Tasks<br>
+    <%end%>
   </div>  
   <div class="myinbox">
   </div>
@@ -42,13 +46,12 @@
 </div>
 <div class="right">
   <div class="center">
-    <div class="myinbox">Inbox (My Tasks)
-    </div>
-    <%@my_assignments.each do |assign|%>
-    <div class="mylist">
-    <%=assign.my_tasks.title%><br>
-    </div>
-    <%end%>       
+   
+    <div id="mytasks"></div>
+   
+    
+    
+          
     </div>
 </div>
 

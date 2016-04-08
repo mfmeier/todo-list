@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get "task/edit/:id" => 'task#edit'
   get "task/add"  => 'tasks#add'
   get "user/settings" => 'user#settings'
+  get "task/family" => 'tasks#family'
+  get "mymail" => 'pages#mail'
 end

@@ -1,0 +1,8 @@
+
+    <div class="myinbox">Inbox (My Tasks)
+    </div>
+    <%@my_assignments.each do |assign|%>
+    <div class="mylist">
+    <%=assign.my_tasks.title%><br>
+    </div>
+    <%end%>       

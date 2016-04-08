@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     render 'index'
   end
   def index #The sites welcome page
-    @user = current_user
+      @user = current_user
       
 
       
@@ -49,5 +49,16 @@ class TasksController < ApplicationController
     @task = Task.all
     @family = User.where("family_id" => user.family_id)
     render "main"
+  end
+  def family
+    @user = current_user
+    @family = User.where("family_id" => @user.family_id)
+    @family.each do |fam|
+       @my_assignments = Assignment.where("user_id"=> fam.id)
+    end
+    # @my_assignments = Assignment.where("user_id" => @family.id)
+    @task = Task.all   #I need this to be --- user.tasks
+    @all_tasks = Task.all #still all the tasks not just this users
+    render 'family'
   end
 end

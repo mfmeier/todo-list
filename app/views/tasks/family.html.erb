@@ -22,7 +22,8 @@
     <%=image_tag("icon_calendar.png")%>Today<br>
   </div>
   <div class="tasks">
-    <%=image_tag("icon_all_tasks.png")%>  All Family Tasks<be>
+    <%= link_to 'user/settings' do %><%=image_tag("icon_all_tasks.png")%>  All Family Tasks<be>
+  <% end %>
   </div>  
   <div class="myinbox">
   </div>
@@ -39,25 +40,17 @@
 </div>
 <div class="right">
   <div class="center">
-    <div class="myinbox">
-    <h1><%=@user.name%></h1>
-
-    <h3>Assigned Tasks</h3>
-    <% if !@assigned.nil?%>
-    <%@assigned.each do |assigned|%>
-
-    
+    <div class="myinbox">All<br>
+    <%=@user.family.name%><br>
+    Tasks
     </div>
-
-    
+    <% if !@my_assignments.nil?%>
+    <%@my_assignments.each do |assign|%>
     <div class="mylist">
-    <%=assigned.task.title%><br>
-   <%end%> 
-    <%end%> 
-
+    <%=assign.my_tasks.title%><br>
     </div>
-    
-          
+    <%end%>
+    <%end%>       
     </div>
 </div>
 
