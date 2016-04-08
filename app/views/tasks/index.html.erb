@@ -1,8 +1,63 @@
-<%@task.each do |task|%>
-  <li>
-    <a href="/tasks/<%= task.id %>/complete"><%=task.title%><br>
-      <%if task.completed = true%>(Complete)
-      
-    </li>
+
+<div class="top"> 
+  <div class ="inline">
+  <div class="head"><%=@user.family.name%></div>
+  </div>
+  <div class="inline">
+  <div class="addtask">
+    <div id="add">
+    <%=link_to '#' do %><%= image_tag('icon_white_plus.png')%>
+    <% end %>
+    </div>
+    <%= link_to 'user/settings' do %><%= image_tag('icon_white_gear.png')%>
+    <% end %>
+
+
+
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="left">
+  <div class="inbox">
+    <%=image_tag("icon_inbox.png")%> Inbox<br>
+  </div>
+  <div class="calendar">
+    <%=image_tag("icon_calendar.png")%>Today<br>
+  </div>
+  <div class="tasks">
+    <%= link_to 'task/family' do %><%=image_tag('icon_all_tasks.png')%>  All Family Tasks<br>
     <%end%>
+  </div>  
+  <div class="myinbox">
+  </div>
+  <p class="familymembers">Family Members</p>
+  <div class="familylist">
+  <%@family.each do |fam|%>
+  <a href="user/<%=fam.id%>/view"><%=fam.name%></a><br>
   <%end%>
+  </div>
+  <div class="checklist">
+  </div>
+  <div class="checklistcross">
+  </div>
+</div>
+<div class="right">
+  <div class="center">
+   
+    <div id="mytasks"></div>
+   
+    
+    
+          
+    </div>
+</div>
+
+
+
+
+
+
+

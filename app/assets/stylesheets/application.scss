@@ -1,1 +1,92 @@
 @charset "utf-8";
+/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+
+.head{
+  margin: 0px;
+}
+.addtask{
+    padding-left: 670px;
+}
+.inline{
+    display:inline-block;
+}
+.settings{
+    
+}
+.top{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #D06262;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+p.familymembers{
+    padding-top: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: grey;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+    padding-bottom: 3px;
+    padding-left: 10px;
+}
+.familylist{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: grey;
+    line-height: 200%;
+    padding-left: 10px;
+}
+.myinbox{
+    color: grey;
+    font-size: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.mylist{
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 20px;
+    line-height: 2;
+    color: grey;
+    border-bottom-color: #BDB9B9;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+}
+.top{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #CE5858;
+    padding-left: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+
+}
+.left{
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    background: #F5F3F3;
+    padding-left: 60px;
+    padding-top: 30px;
+}
+.right{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    right: 60px;
+    padding-top: 20px;
+}
+.calendar{
+    padding-top: 20px;
+    font-size: 15px;;
+}
+.tasks{
+    padding-top: 20px;
+}
+.inbox{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+  
+}
+.myinbox{
+
+}

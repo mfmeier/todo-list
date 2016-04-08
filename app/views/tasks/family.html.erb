@@ -8,9 +8,6 @@
     <% end %>
     <%= link_to 'user/settings' do %><%= image_tag('icon_white_gear.png')%>
     <% end %>
-
-
-
     </div>
     </div>
   </div>
@@ -25,14 +22,15 @@
     <%=image_tag("icon_calendar.png")%>Today<br>
   </div>
   <div class="tasks">
-    <%=image_tag("icon_all_tasks.png")%>  All Family Tasks<be>
+    <%= link_to 'user/settings' do %><%=image_tag("icon_all_tasks.png")%>  All Family Tasks<be>
+  <% end %>
   </div>  
   <div class="myinbox">
   </div>
   <p class="familymembers">Family Members</p>
   <div class="familylist">
   <%@family.each do |fam|%>
-  <a href="view/<%=fam.id%>/user"><%=fam.name%></a><br>
+  <a href="user/<%=fam.id%>/view"><%=fam.name%></a><br>
   <%end%>
   </div>
   <div class="checklist">
@@ -42,16 +40,18 @@
 </div>
 <div class="right">
   <div class="center">
-    <div class="myinbox">New Task
+    <div class="myinbox">All<br>
+    <%=@user.family.name%><br>
+    Tasks
     </div>
-    <div class="inputtask">
-      <%= form_tag "/tasks" do %>
-      <input type="text" name="title">
-      <input type="submit">
-      <%end%>
+    <% if !@my_assignments.nil?%>
+    <%@my_assignments.each do |assign|%>
+    <div class="mylist">
+    <%=assign.my_tasks.title%><br>
     </div>
-    
-  </div>
+    <%end%>
+    <%end%>       
+    </div>
 </div>
 
 

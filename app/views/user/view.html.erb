@@ -8,9 +8,6 @@
     <% end %>
     <%= link_to 'user/settings' do %><%= image_tag('icon_white_gear.png')%>
     <% end %>
-
-
-
     </div>
     </div>
   </div>
@@ -32,7 +29,7 @@
   <p class="familymembers">Family Members</p>
   <div class="familylist">
   <%@family.each do |fam|%>
-  <a href="view/<%=fam.id%>/user"><%=fam.name%></a><br>
+  <a href="user/<%=fam.id%>/view"><%=fam.name%></a><br>
   <%end%>
   </div>
   <div class="checklist">
@@ -42,16 +39,26 @@
 </div>
 <div class="right">
   <div class="center">
-    <div class="myinbox">New Task
+    <div class="myinbox">
+    <h1><%=@user.name%></h1>
+
+    <h3>Assigned Tasks</h3>
+    <% if !@assigned.nil?%>
+    <%@assigned.each do |assigned|%>
+
+    
     </div>
-    <div class="inputtask">
-      <%= form_tag "/tasks" do %>
-      <input type="text" name="title">
-      <input type="submit">
-      <%end%>
+
+    
+    <div class="mylist">
+    <%=assigned.task.title%><br>
+   <%end%> 
+    <%end%> 
+
     </div>
     
-  </div>
+          
+    </div>
 </div>
 
 
